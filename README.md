@@ -1,1 +1,3 @@
 # sparrow-bpm
+
+提供调用kogito的统一调用服务，主要是集成user和group的角色，用来调用rest服务的时候，不需要在url上输入username和groupname，而是直接从token里面取出来
