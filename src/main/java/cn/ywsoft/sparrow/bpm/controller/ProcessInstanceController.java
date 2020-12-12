@@ -15,7 +15,7 @@ public class ProcessInstanceController {
 	
 	@PostMapping("/startProcess/{processId}")
 	public Object startProcess(@RequestBody final Object body, @PathVariable(name = "processId") String processId) {
-		String url = "http://localhost:8080/"+processId;
+		String url = "http://SPARROW-TRIAL/"+processId;
 		return restTemplate.postForObject(url, body, Object.class);
 	}
 }

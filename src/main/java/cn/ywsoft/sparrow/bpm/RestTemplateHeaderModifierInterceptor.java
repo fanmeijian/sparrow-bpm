@@ -26,13 +26,13 @@ public class RestTemplateHeaderModifierInterceptor implements ClientHttpRequestI
 		Jwt jwt = (Jwt) authentication.getCredentials();
 		String token =jwt.getTokenValue();
 		request.getHeaders().add("Authorization", "Bearer " + token);
-//		String url = UriComponentsBuilder.fromUri(request.getURI()).queryParam("user", jwt.getClaim("user_name").toString()).queryParam("group", ((JSONArray)jwt.getClaim("roles"))).build().toUri().toASCIIString();
-		String url = UriComponentsBuilder.fromUriString(request.getURI().getPath()).query(request.getURI().getQuery()).queryParam("user", jwt.getClaim("user_name").toString()).queryParam("group", ((JSONArray)jwt.getClaim("roles"))).build().toUri().toASCIIString();
+		String url = UriComponentsBuilder.fromUri(request.getURI()).queryParam("user", jwt.getClaim("user_name").toString()).queryParam("group", ((JSONArray)jwt.getClaim("roles"))).build().toUri().toASCIIString();
+//		String url = UriComponentsBuilder.fromUriString(request.getURI().getPath()).query(request.getURI().getQuery()).queryParam("user", jwt.getClaim("user_name").toString()).queryParam("group", ((JSONArray)jwt.getClaim("roles"))).build().toUri().toASCIIString();
 
 		
-//		URI uri = UriComponentsBuilder.fromUriString(url).build().toUri();
+		URI uri = UriComponentsBuilder.fromUriString(url).build().toUri();
 		
-		URI uri = UriComponentsBuilder.fromUriString("http://SPARROW-TRIAL"+url).build().toUri();
+//		URI uri = UriComponentsBuilder.fromUriString("http://SPARROW-TRIAL"+url).build().toUri();
 
 		HttpRequest modifiedRequest = new HttpRequestWrapper(request) {
 
