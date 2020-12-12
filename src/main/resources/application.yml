@@ -26,6 +26,16 @@ spring:
       host: "localhost"
       port: 27017
       database: "kogito"
+      
+      
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka   #服务eureka的URL地址
+
+
 #      username: "user"
 #      password: "secret"
 
