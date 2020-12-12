@@ -13,26 +13,24 @@ import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
 
-
 @EnableEurekaClient
 @SpringBootApplication
 public class SparrowBpmApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(SparrowBpmApplication.class, args);
-    }
-    
-    @Bean
-    @LoadBalanced
-	public RestTemplate restTemplate(RestTemplateBuilder builder) {
-    	RestTemplate restTemplate = builder.build();
+	public static void main(String[] args) {
+		SpringApplication.run(SparrowBpmApplication.class, args);
+	}
 
-        List<ClientHttpRequestInterceptor> interceptors
-          = restTemplate.getInterceptors();
-        if (CollectionUtils.isEmpty(interceptors)) {
-            interceptors = new ArrayList<>();
-        }
-        interceptors.add(new RestTemplateHeaderModifierInterceptor());
-        restTemplate.setInterceptors(interceptors);
-        return restTemplate; 
+	@Bean
+	@LoadBalanced
+	public RestTemplate restTemplate(RestTemplateBuilder builder) {
+		RestTemplate restTemplate = builder.build();
+
+		List<ClientHttpRequestInterceptor> interceptors = restTemplate.getInterceptors();
+		if (CollectionUtils.isEmpty(interceptors)) {
+			interceptors = new ArrayList<>();
+		}
+		interceptors.add(new RestTemplateHeaderModifierInterceptor());
+		restTemplate.setInterceptors(interceptors);
+		return restTemplate;
 	}
 }
