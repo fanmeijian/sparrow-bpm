@@ -3,7 +3,7 @@ package cn.ywsoft.sparrow.bpm.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="sysroleflow")
+@Document(collection="sysroleflows")
 public class SysroleFlow {
 	
 	@Id SysroleFlowPK id;
