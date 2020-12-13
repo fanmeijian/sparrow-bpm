@@ -60,9 +60,9 @@ public class UserTaskInstanceController {
 		});
 		
 		String[] user = new String[1];
-		user[0] = authentication.getName();
+		user[0] = jwt.getClaim("user_name").toString();
 		
-		return userTaskInstanceRepository.findByPotentialGroupsOrPotentialUsers(groups, user, p);
+		return userTaskInstanceRepository.findByPotentialGroupsInOrPotentialUsersIn(groups, user, p);
 		
 	}
 }

@@ -12,5 +12,5 @@ import cn.ywsoft.sparrow.bpm.model.UserTaskInstance;
 public interface UserTaskInstanceRepository extends MongoRepository<UserTaskInstance, String> {
 	
 	@RestResource(exported = false)
-	Page<UserTaskInstance> findByPotentialGroupsOrPotentialUsers(String[] groups,String[] users,Pageable p);
+	Page<UserTaskInstance> findByPotentialGroupsInOrPotentialUsersIn(String[] groups,String[] users,Pageable p);
 }
